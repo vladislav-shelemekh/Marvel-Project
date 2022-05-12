@@ -1,11 +1,12 @@
 import {Component} from 'react';
+import propTypes from 'prop-types';
 import Spinner from '../spinner/Spinner';
 import ErrorMesage from '../errorMessage/ErrorMesage'
 import MarvelService from '../../services/MarvelService'
 import './charList.scss';
 // import abyss from '../../resources/img/abyss.jpg';
 
-export default class CharList extends Component {
+class CharList extends Component {
 
     state = {
         charList: [],
@@ -78,7 +79,7 @@ export default class CharList extends Component {
                 </li>
             )
         });
-        // А эта конструкция вынесена для центровки спиннера/ошибки
+        // center spinner
         return (
             <ul className="char__grid">
                 {items}
@@ -120,3 +121,9 @@ export default class CharList extends Component {
 //         </li>
 //     )
 // }
+
+CharList.propTypes = {
+    onCharSelected: propTypes.func.isRequired
+}
+
+export default CharList;
